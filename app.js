@@ -1,9 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
+
+    const imageUrls = [
+        'pic/2.png',
+        'pic/3.png',
+        'pic/4.png',
+        'pic/5.png',
+        // เพิ่ม URL ของรูปภาพเพิ่มเติมตามต้องการ
+      ];
+
     const output = document.getElementById('output');
     const button = document.getElementById('button');
     const additionalButton = document.getElementById('additionalButton');
     const customPopup = document.getElementById('customPopup');
-  
+    const faruzanImage = document.querySelector('.faruzan');
+
+    
     let count = 0;
     let isGameOver = false;
     let isCustomPopupOpen = false;
@@ -14,9 +25,15 @@ document.addEventListener('DOMContentLoaded', function () {
     function handleButtonClick() {
       if (count < 20 && !isGameOver) {
         count++;
-        button.textContent = `Days ${count}`;
+        output.textContent = '*'.repeat(count+1);
+        button.textContent = `Days ${count} January`;
+
+        const randomImageUrl = imageUrls[Math.floor(Math.random() * imageUrls.length)];
+        faruzanImage.src = randomImageUrl;
       }
   
+
+
       if (count === 20) {
         isGameOver = true;
         output.textContent = 'HAPPY BIRTHDAY TO MEI!, Congrats to level up to AR24';
@@ -36,5 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
         window.scrollTo(0, 0);
 
     }
+
+    
   });
   
