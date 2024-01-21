@@ -20,7 +20,7 @@
   }
   
   a {
-    font-weight: 100;
+    font-weight: 500;
     color: #fff;
     text-decoration: inherit;
   }
@@ -30,13 +30,11 @@
   }
   
   body {
-    margin: 0;
-    /* display: flex; */
     overflow: auto;
     place-items: center;
     min-width: 320px;
     min-height: 100vh;
-    /* background-image: -moz-linear-gradient(); */
+    animation: transitionIn 0.75s;
   }
   
   h1 {
@@ -64,7 +62,7 @@
     margin: .3rem;
   }
   button:hover {
-    border-color: #646cff;
+    border-color: #40a4f7;
   }
   button:focus,
   button:focus-visible {
@@ -84,11 +82,21 @@
     }
   }
   
+  @keyframes transitionIn  {
+    from {
+      opacity: 0;
+      transform: rotateX(-10deg);
+    }
+    to {
+      opacity: 1;
+      transform: rotateX(0);
+    }
+  }
+
   #additionalButton {
-    display: none; /* เริ่มต้นแสดงผลปุ่มเพิ่มเติมให้ซ่อน */
+    display: none;
   }
   
-  /* เพิ่มเงื่อนไข CSS เพื่อแสดงผลปุ่มเพิ่มเติมเมื่อ count มีค่านอกจาก 20 */
   #button:disabled + #additionalButton {
     display: inline;
   }
@@ -96,13 +104,76 @@
   #additionalButton {
     display: none;
     margin-top: 2rem;
-    /* transform: translateX(50%); เลื่อนปุ่มไปทางกลาง */
+
     cursor: pointer;
-    /* border: none; */
+
+  }
+  #output {
+
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
   }
   
-  /* #additionalButton:hover {
-    background-color: #005684;
+  .fade-in {
+    opacity: 0;
+  }
+
+  #customBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #btnBack {
+    padding: 1rem 2rem;
+    align-items: center;
+  }
+
+  
+  #customPopup {
+    display: flex;
+    flex-direction: row; /* เปลี่ยนจาก column เป็น row */
+    justify-content: center; /* จัดให้ตรงกลางทั้งแนวตั้งและแนวนอน */
+    align-items: center;
+    text-align: center;
+    box-shadow: 1rem 1rem 10rem rgba(100, 255, 255, 0.8);
+    overflow: hidden;
+    animation: changeColor 5s infinite alternate;
+    border-radius: 2rem;
+  }
+
+  #customPopup {
+    max-width: 1680px; /* ปรับขนาดของ container ตามที่ต้องการ */
+    margin: 4rem auto; /* ให้ container อยู่กลางจอ */
   }
   
-   */
+  #context-text {
+    text-align: center; /* จัดให้ข้อความอยู่ทางซ้าย */
+    padding: 10px; /* เพิ่ม padding เพื่อให้ข้อความห่างจากขอบต่างๆ */
+    margin: 2rem;
+  }
+  
+  #context-vdo {
+    margin-right: 10px; /* กำหนดระยะห่างของวิดีโอจากข้อความด้านขวา */
+    margin: 2rem;
+    border-radius: 2rem;
+  }
+
+  @keyframes changeColor {
+    0% {
+      box-shadow: 0 0 10px rgba(100, 255, 255, 0.8);
+    }
+    25% {
+      box-shadow: 0 0 10px rgba(255, 100, 255, 0.8);
+    }
+    50% {
+      box-shadow: 0 0 10px rgba(255, 255, 100, 0.8);
+    }
+    75% {
+      box-shadow: 0 0 10px rgba(100, 255, 100, 0.8);
+    }
+    100% {
+      box-shadow: 0 0 10px rgba(100, 100, 255, 0.8);
+    }
+  }
+  
