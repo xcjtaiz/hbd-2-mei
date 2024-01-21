@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     let count = 0;
     let isGameOver = false;
-    let isCustomPopupOpen = false;
+    // let isCustomPopupOpen = false;
   
     button.addEventListener('click', handleButtonClick);
     additionalButton.addEventListener('click', handleAdditionalButtonClick);
