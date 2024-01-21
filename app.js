@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function () {
         'pic/3.png',
         'pic/4.png',
         'pic/5.png',
-        // เพิ่ม URL ของรูปภาพเพิ่มเติมตามต้องการ
       ];
 
     const output = document.getElementById('output');
